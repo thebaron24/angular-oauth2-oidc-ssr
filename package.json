@@ -30,7 +30,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^7.1.0",
     "core-js": "^2.6.2",
     "express": "^4.15.2",
-    "rxjs": "~6.4.0",
+    "rxjs": "~6.5.2",
     "ts-loader": "^5.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.29"
