@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+//Angular Flex-Layout
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 //Angular Material CDK
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -47,6 +50,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   declarations: [],
   imports: [
     CommonModule,
+    //Angular Flex-Layout
+    FlexLayoutModule,
     //Angular Material CDK
     DragDropModule,
     ScrollingModule,
@@ -89,6 +94,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatPaginatorModule
   ],
   exports: [
+    //Angular Flex-Layout
+    FlexLayoutModule,
   	//Angular Material CDK
     DragDropModule,
     ScrollingModule,

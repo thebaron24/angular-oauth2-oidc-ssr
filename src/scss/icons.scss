@@ -1,0 +1,43 @@
+$material-icons-codepoints: () !default; /* Sass map of icon names and codepoints */
+$material-icons-font-path: '~material-design-icons/iconfont/' !default;
+$material-icons-font-name: 'MaterialIcons-Regular' !default;
+$material-icons-font-size: 24px !default;
+$material-icons-font-family: 'Material Icons' !default;
+
+.material-icons {
+  font-family: $material-icons-font-family;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $material-icons-font-size;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+@font-face {
+  font-family: $material-icons-font-family;
+  font-style: normal;
+  font-weight: 400;
+  //color: mat-color($angular-universal-primary);
+  src: url($material-icons-font-path + $material-icons-font-name + '.eot'); /* For IE6-8 */
+  src: local($material-icons-font-family),
+    local($material-icons-font-name),
+    url($material-icons-font-path + $material-icons-font-name + '.woff2') format('woff2'),
+    url($material-icons-font-path + $material-icons-font-name + '.woff') format('woff'),
+    url($material-icons-font-path + $material-icons-font-name + '.ttf') format('truetype');
+}
