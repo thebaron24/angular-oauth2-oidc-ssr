@@ -4,6 +4,8 @@
     <mat-icon aria-hidden="false" aria-label="Example home icon">code</mat-icon>
     Welcome to {{ title }}!
   </h1>
+  <p *ngIf="auth.$isAuthenticated | async">authenticated</p>
+  <p *ngIf="!(auth.$isAuthenticated | async)">unauthenticated</p>
   <h2>Here are some links to help you start: </h2>
   <ul>
     <li>
