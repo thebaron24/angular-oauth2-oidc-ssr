@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
-  	private readonly _isAuthenticated = new BehaviorSubject<Boolean>(false);
-  	public readonly $isAuthenticated = this._isAuthenticated.asObservable();
+  private readonly _isAuthenticated = new BehaviorSubject<Boolean>(false);
+  public readonly $isAuthenticated = this._isAuthenticated.asObservable();
 
 	constructor(public oktaAuth: OktaAuthService, private router: Router) {
 		this.oktaAuth.$authenticationState.subscribe(isAuthenticated => {

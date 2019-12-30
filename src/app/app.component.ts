@@ -7,9 +7,7 @@ import { AuthenticationService } from './authentication/authentication.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-universal-material';
 
-  constructor(public auth: AuthenticationService) {
-
-  }
+  constructor(public auth: AuthenticationService) {}
+  
 }
