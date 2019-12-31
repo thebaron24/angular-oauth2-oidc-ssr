@@ -14,6 +14,9 @@ export default {
     issuer: config.issuer,
     redirectUri: config.redirectUri,
     scopes: ['openid', 'profile', 'email']
+    // testing: {
+    //   disableHttpsCheck: `${OKTA_TESTING_DISABLEHTTPSCHECK}`
+    // }
   },
   resourceServer: {
     messagesUrl: 'http://localhost:4200/api/messages',
