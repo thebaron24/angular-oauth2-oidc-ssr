@@ -7,7 +7,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import sampleConfig from './authentication.config';
+import authConfig from './authentication.config';
 
 import {
   OKTA_CONFIG,
@@ -19,7 +19,7 @@ const oktaConfig = Object.assign({
     // Redirect the user to your custom login page
     router.navigate(['/login']);
   }
-}, sampleConfig.oidc);
+}, authConfig.oidc);
 
 @NgModule({
   declarations: [LoginComponent, ProfileComponent],
@@ -27,7 +27,8 @@ const oktaConfig = Object.assign({
     CommonModule,
     HttpClientModule,
     AuthenticationRoutingModule,
-    OktaAuthModule
+    // OktaAuthModule
+    OktaAuthModule.initAuth(oktaConfig)
   ],
   providers: [
   	{ provide: OKTA_CONFIG, useValue: oktaConfig }
