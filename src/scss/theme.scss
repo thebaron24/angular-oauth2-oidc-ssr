@@ -1,5 +1,5 @@
+@import 'mixins';
 @import 'icons';
-
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -15,7 +15,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $angular-universal-primary: mat-palette($mat-blue);
-$angular-universal-accent: mat-palette($mat-green, A200, A100, A400);
+$angular-universal-accent: mat-palette($mat-grey);
 
 // The warn palette is optional (defaults to red).
 $angular-universal-warn: mat-palette($mat-red);
@@ -29,3 +29,32 @@ $angular-universal-theme: mat-light-theme($angular-universal-primary, $angular-u
 @include angular-material-theme($angular-universal-theme);
 
 /* You can add global styles to this file, and also import other style files */
+
+@mixin svg-path-gradient($theme: $angular-universal-theme, $primary: map-get($angular-universal-theme, primary), $accent: map-get($angular-universal-theme, accent), $warn: map-get($angular-universal-theme, warn),  $background: map-get($angular-universal-theme, background),  $foreground: map-get($angular-universal-theme, foreground)) {
+  fill: mat-color($accent);
+  -webkit-animation: fill 5s ease infinite;
+  -moz-animation: fill 5s ease infinite;
+  -o-animation: fill 5s ease infinite;
+  animation: fill 5s ease infinite;
+
+  @keyframes fill {
+	  0% {
+	      fill: mat-color($accent);
+	  }
+	  50% {
+	      fill: mat-color($primary);
+	  }
+	  100% {
+	      fill: mat-color($accent);
+	  }
+	}
+
+
+  @content;
+}
+
+#Alien_Head {
+	path {
+		@include svg-path-gradient();
+	}
+}
