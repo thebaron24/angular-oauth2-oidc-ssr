@@ -14,8 +14,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-universal-primary: mat-palette($mat-blue);
-$angular-universal-accent: mat-palette($mat-grey);
+$angular-universal-primary: mat-palette($mat-light-blue, 800);
+$angular-universal-accent: mat-palette($mat-light-blue, 900);
 
 // The warn palette is optional (defaults to red).
 $angular-universal-warn: mat-palette($mat-red);
