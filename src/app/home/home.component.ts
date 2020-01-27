@@ -9,6 +9,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class HomeComponent implements OnInit {
 
   title = 'Baron Wilson';
+  subtitle = 'Sound Front End Development';
 
   constructor(public auth: AuthenticationService) { }
 
