@@ -1,10 +1,22 @@
 @import 'scss/theme';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat-core($app-typography);
 
-img.angular-logo {
-	height: auto;
+html, body , app-root{
+	height: 100vh;
 	width: 100%;
-	max-width: 300px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+app-root {
+	display: block;
+}
+
+.baron-wilson {
+	$theme: $app-theme;
+	$typography: $app-typography;
+	@include angular-material-theme($theme);
+	@include angular-material-typography($typography);
 }

@@ -1,60 +1,31 @@
 @import 'mixins';
 @import 'icons';
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
+$app-primary: mat-palette($mat-light-blue, 800);
+$app-accent: mat-palette($mat-light-blue, 900);
+$app-warn: mat-palette($mat-red);
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$angular-universal-primary: mat-palette($mat-light-blue, 800);
-$angular-universal-accent: mat-palette($mat-light-blue, 900);
+$app-theme: mat-light-theme(
+	$app-primary,
+	$app-accent,
+	$app-warn
+);
 
-// The warn palette is optional (defaults to red).
-$angular-universal-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$angular-universal-theme: mat-light-theme($angular-universal-primary, $angular-universal-accent, $angular-universal-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($angular-universal-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-@mixin svg-path-gradient($theme: $angular-universal-theme, $primary: map-get($angular-universal-theme, primary), $accent: map-get($angular-universal-theme, accent), $warn: map-get($angular-universal-theme, warn),  $background: map-get($angular-universal-theme, background),  $foreground: map-get($angular-universal-theme, foreground)) {
-  fill: mat-color($accent);
-  -webkit-animation: fill 5s ease infinite;
-  -moz-animation: fill 5s ease infinite;
-  -o-animation: fill 5s ease infinite;
-  animation: fill 5s ease infinite;
-
-  @keyframes fill {
-	  0% {
-	      fill: mat-color($accent);
-	  }
-	  50% {
-	      fill: mat-color($primary);
-	  }
-	  100% {
-	      fill: mat-color($accent);
-	  }
-	}
-
-
-  @content;
-}
-
-#Alien_Head {
-	path {
-		@include svg-path-gradient();
-	}
-}
+$app-typography: mat-typography-config(
+  $font-family:   'Roboto, "Helvetica Neue", sans-serif',
+  $display-4:     mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:     mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2:     mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1:     mat-typography-level(34px, 40px, 400),
+  $headline:      mat-typography-level(24px, 32px, 400),
+  $title:         mat-typography-level(20px, 32px, 500),
+  $subheading-2:  mat-typography-level(16px, 28px, 400),
+  $subheading-1:  mat-typography-level(15px, 24px, 400),
+  $body-2:        mat-typography-level(14px, 24px, 500),
+  $body-1:        mat-typography-level(14px, 20px, 400),
+  $caption:       mat-typography-level(12px, 20px, 400),
+  $button:        mat-typography-level(14px, 14px, 500),
+  // Line-height must be unit-less fraction of the font-size.
+  $input:         mat-typography-level(inherit, 1.125, 400)
+);
