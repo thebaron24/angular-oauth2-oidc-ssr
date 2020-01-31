@@ -36,15 +36,15 @@ export class AuthenticationService implements OnInit {
 
 	isAuthenticated: boolean;
   constructor(public oktaAuth: OktaAuthService, private router: Router) {
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => {
-    	this.isAuthenticated = isAuthenticated;
-    	this._isAuthenticated.next(isAuthenticated)
-    })
+    // this.oktaAuth.$authenticationState.subscribe(isAuthenticated => {
+    // 	this.isAuthenticated = isAuthenticated;
+    // 	this._isAuthenticated.next(isAuthenticated)
+    // })
   }
   async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    // this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
   logout() {
-    this.oktaAuth.logout('/');
+    // this.oktaAuth.logout('/');
   }
 }
