@@ -28,10 +28,9 @@ export const authCodeFlowConfig: AuthConfig = {
   // URL of the SPA to redirect the user to after login
   //redirectUri: window.location.origin + '/index.html',
   //redirectUri: window.location.origin,
-  //redirectUri: 'http://localhost:4000',
+  redirectUri: 'http://localhost:4000',
   //redirectUri: 'http://localhost:4200',
 
-  redirectUri: 'https://www.baronwilson.io/',
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
   // clientId: 'server.code',
