@@ -7,10 +7,10 @@ const routes: Routes = [
 		path: '',
 		component: HomeComponent,
 	},
-	{
-		path: '',
-		loadChildren: () => import('./authentication/authentication.module').then(mod => mod.AuthenticationModule)
-	},
+	// {
+	// 	path: '',
+	// 	loadChildren: () => import('./authentication/authentication.browser.module').then(mod => mod.AuthenticationBrowserModule)
+	// },
 	{
 		path: '**',
 		redirectTo: ''

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationBrowserModule } from './authentication/authentication.browser.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    AuthenticationModule
+    AuthenticationBrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

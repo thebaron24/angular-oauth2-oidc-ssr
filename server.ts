@@ -5,11 +5,11 @@ import {enableProdMode} from '@angular/core';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
-
+import {renderModuleFactory} from '@angular/platform-server';
 import * as express from 'express';
 import {join} from 'path';
-
 import * as compression from 'compression';
+import cookieParser from 'cookie-parser';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -18,6 +18,8 @@ enableProdMode();
 const app = express();
 
 app.use(compression());
+
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
@@ -29,7 +31,7 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main'
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
   providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
+    provideModuleMap(LAZY_MODULE_MAP),
   ]
 }));
 
@@ -43,8 +45,14 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+// TODO: implement data requests securely
+app.get('/api/*', (req, res) => {
+  res.status(404).send('data requests are not supported');
+});
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
+	//console.log("reg route", {req, res});
   res.render('index', { req });
 });
 
