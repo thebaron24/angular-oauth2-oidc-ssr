@@ -17,6 +17,8 @@ export class AuthenticationService implements OnInit {
 
     this.configureCodeFlow();
 
+    if(this.oauthService.hasValidAccessToken()) this._isAuthenticated.next(true);
+
      /**
       export type EventType =
       | 'discovery_document_loaded'
