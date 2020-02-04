@@ -5,6 +5,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { OAuthStorage } from "angular-oauth2-oidc";
 import { MaterialModule } from '../material/material.module';
 import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationGuard } from './authentication.guard';
 import { TokenInterceptor } from './token.interceptor';
 
 @NgModule({
@@ -22,7 +23,7 @@ import { TokenInterceptor } from './token.interceptor';
   ],
   providers: [
     AuthenticationService,
-    // AuthGuard,
+    AuthenticationGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

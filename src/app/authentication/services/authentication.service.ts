@@ -60,7 +60,7 @@ export class AuthenticationService implements OnInit {
   ngOnInit() {}
 
   login() {
-    this.oauthService.initLoginFlow()
+    this.oauthService.initLoginFlow();
   }
 
   logout() {
