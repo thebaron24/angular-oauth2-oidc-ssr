@@ -1,3 +1,8 @@
 <article fxLayout="column" fxLayoutAlign="center center">
-	<h2>Login</h2>
+	<h2 *ngIf="!(auth.$isAuthenticated | async)">Login</h2>
+	<h2 *ngIf="auth.$isAuthenticated | async">Logout</h2>
+	<p>
+		<button *ngIf="!(auth.$isAuthenticated | async)" (click)="auth.login()">Login</button>
+		<button *ngIf="auth.$isAuthenticated | async" (click)="auth.logout()">Logout</button>
+	</p>
 </article>
