@@ -8,12 +8,10 @@ import { AuthenticationService } from '../authentication/authentication.service'
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Baron Wilson';
-  subtitle = 'Sound Front End Development';
+  title = 'Angular Server Side Rendering with OAuth2';
+  subtitle = 'Featuring Universal and angular-oauth2-oidc';
 
   constructor(public auth: AuthenticationService) { }
-
-  // constructor() { }
 
   ngOnInit() {}
 
