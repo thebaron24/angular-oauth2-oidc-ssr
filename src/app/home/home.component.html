@@ -12,9 +12,6 @@
   </h3>
   <p *ngIf="auth.$isAuthenticated | async">authenticated</p>
   <p *ngIf="!(auth.$isAuthenticated | async)">unauthenticated</p>
-	<!-- <a class="item" *ngIf="!auth.isAuthenticated" routerLink="/login">Login</a> -->
-  <!-- <a id="profile-button" class="item" *ngIf="auth.isAuthenticated" routerLink="/profile">Profile</a> -->
-  <!-- <a id="logout-button" class="item" *ngIf="auth.isAuthenticated" (click)="logout()">Logout</a> -->
 	<p>
 		<button *ngIf="auth.$isAuthenticated | async" (click)="auth.logout()">Logout</button>
 		<button *ngIf="!(auth.$isAuthenticated | async)" (click)="auth.login()">Login</button>

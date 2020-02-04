@@ -4,30 +4,23 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { OAuthStorage } from "angular-oauth2-oidc";
 import { MaterialModule } from '../material/material.module';
-import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthenticationService } from './services/authentication.service';
-import { HttpService } from './services/http.service';
 import { TokenInterceptor } from './token.interceptor';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [LoginComponent, ProfileComponent],
+  declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
     MaterialModule,
-    AuthenticationRoutingModule,
     OAuthModule.forRoot()
   ],
   exports: [
     HttpClientModule,
     MaterialModule,
-    AuthenticationRoutingModule,
     OAuthModule
   ],
   providers: [
-    HttpService,
     AuthenticationService,
     // AuthGuard,
     {
