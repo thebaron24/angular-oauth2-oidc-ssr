@@ -3,7 +3,9 @@ article {
 	height: 100%;
 	width: 100%;
 
-	.logo-container {
-		width: 250px;
+	img {
+		height: auto;
+		width: 100%;
+		max-width: 300px;
 	}
 }

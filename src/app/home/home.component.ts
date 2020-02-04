@@ -8,7 +8,7 @@ import { AuthenticationService } from '../authentication/services/authentication
 })
 export class HomeComponent implements OnInit {
 
-  title = 'Angular Server Side Rendering with OAuth2';
+  title = 'Angular SSR with OAuth2';
   subtitle = 'Featuring Universal and angular-oauth2-oidc';
 
   constructor(public auth: AuthenticationService) { }
