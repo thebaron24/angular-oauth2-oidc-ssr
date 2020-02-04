@@ -4,7 +4,7 @@ import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { AuthenticationServerModule } from './authentication/authentication.server.module';
-import { AuthenticationService } from './authentication/authentication.service';
+import { AuthenticationService } from './authentication/services/authentication.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UniversalInterceptor } from './universal.interceptor';
 import { AppModule } from './app.module';

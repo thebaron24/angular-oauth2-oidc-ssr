@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthenticationSharedModule } from './authentication.shared.module';
 import { OAuthStorage } from "angular-oauth2-oidc";
-import { ServerTokenStoreService } from './server-token-store.service';
+import { ServerTokenStoreService } from './services/server-token-store.service';
 import { ServerCookiesModule } from '@ngx-utils/cookies/server';
 
 

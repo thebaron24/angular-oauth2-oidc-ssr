@@ -2,26 +2,18 @@ import { Injectable, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { OAuthService, OAuthEvent } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
-import { authConfig } from './authentication.config';
-import { authCodeFlowConfig } from './authentication.config';
+import { authCodeFlowConfig } from '../authentication.config';
 
 @Injectable()
 export class AuthenticationService implements OnInit {
 
-  //private oauthService: OAuthService;
   private readonly _isAuthenticated = new BehaviorSubject<Boolean>(false);
   public readonly $isAuthenticated = this._isAuthenticated.asObservable();
 
-  constructor(private router: Router,
-    private oauthService: OAuthService
-    //private injector: Injector
-    ) {
+  constructor(private router: Router, private oauthService: OAuthService) {
     console.log("AuthenticationService");
-
-    //this.oauthService = this.getAuthService();
 
     this.configureCodeFlow();
 
@@ -65,9 +57,7 @@ export class AuthenticationService implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   login() {
     this.oauthService.initLoginFlow()
@@ -78,16 +68,8 @@ export class AuthenticationService implements OnInit {
   }
 
   private configureCodeFlow() {
-    this.oauthService.configure(authConfig);
     this.oauthService.configure(authCodeFlowConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
-
-  // private getAuthService(): OAuthService {
-  //   if (typeof this.oauthService === 'undefined') {
-  //       this.oauthService = this.injector.get(OAuthService);
-  //   }
-  //   return this.oauthService;
-  // }
 }
