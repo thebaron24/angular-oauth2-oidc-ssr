@@ -10,36 +10,14 @@ export class BrowserTokenStoreService implements OAuthStorage {
     }
 
     getItem(key: string): string {
-        return this.readCookie(key);
+        return this.cookies.get(key);
     }
 
     removeItem(key: string): void {
-        this.removeCookie(key);
+        this.cookies.remove(key);
     }
 
     setItem(key: string, data: string): void {
-        this.writeCookie(key, data);
-    }
-
-    readCookie(name: string) {
-        var result = new RegExp('(?:^|; )' + encodeURIComponent(name) + '=([^;]*)').exec(document.cookie);
-        return result ? result[1] : null;
-    }
-
-    writeCookie(name: string, value: string, days?: number) {
-        if (!days) {
-            days = 365 * 20;
-        }
-
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-
-        var expires = "; expires=" + date.toUTCString();
-
-        document.cookie = name + "=" + value + expires + "; path=/";
-    }
-
-    removeCookie(name: string) {
-        this.writeCookie(name, "", -1);
+        this.cookies.put(key, data);
     }
 }

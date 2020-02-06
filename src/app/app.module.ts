@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationBrowserModule } from './authentication/authentication.browser.module';
@@ -22,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserTransferStateModule,
     TransferHttpCacheModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MaterialModule,
     BrowserAnimationsModule,
     AuthenticationBrowserModule

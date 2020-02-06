@@ -29,14 +29,14 @@ export const authCodeFlowConfig: AuthConfig = {
   //redirectUri: window.location.origin + '/index.html',
   //redirectUri: window.location.origin,
   redirectUri: 'http://localhost:4000',
-  //redirectUri: 'http://localhost:4200',
+  // redirectUri: 'http://localhost:4200',
 
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
   // clientId: 'server.code',
   clientId: 'spa',
 
-  sessionChecksEnabled: true,
+  //sessionChecksEnabled: true,
 
   // Just needed if your auth server demands a secret. In general, this
   // is a sign that the auth server is not configured with SPAs in mind
