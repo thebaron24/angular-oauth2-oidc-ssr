@@ -1,0 +1,10 @@
+<article fxLayout="column" fxLayoutAlign="center center" style="text-align:center;">
+	<h2>Api Test</h2>
+	<p>Test an api call while authenticated and unauthenticated.</p>
+	<p>
+    <button mat-flat-button color="primary" (click)="apiCall()">Call API</button>
+	</p>
+
+	<p *ngIf="result" style="color:green;max-width:600px;">{{result | json}}</p>
+	<p *ngIf="error" style="color:red;max-width:600px;">{{error | json}}</p>
+</article>

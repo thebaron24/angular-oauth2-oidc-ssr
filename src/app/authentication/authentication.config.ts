@@ -1,25 +1,15 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
 
-export const authConfig: AuthConfig = {
-
-  // Url of the Identity Provider
-  issuer: 'https://steyer-identity-server.azurewebsites.net/identity',
-
-  // URL of the SPA to redirect the user to after login
-  //redirectUri: window.location.origin + '/index.html',
-  //redirectUri: window.location.origin,
-  redirectUri: 'http://localhost:4000',
-  // redirectUri: 'http://localhost:4200',
-
-  // The SPA's id. The SPA is registered with this id at the auth-server
-  clientId: 'spa-demo',
-
-  sessionChecksEnabled: true,
-
-  // set the scope for the permissions the client should request
-  // The first three are defined by OIDC. The 4th is a usecase-specific one
-  scope: 'openid profile email voucher',
+export const resourceConfig: any = {
+  resourceServer: {
+    allowedUrls: [
+      'http://localhost:4200/api',
+      'http://localhost:4000/api'
+    ],
+    sendAccessToken: false
+  }
 }
+
 
 export const authCodeFlowConfig: AuthConfig = {
   // Url of the Identity Provider
@@ -36,8 +26,6 @@ export const authCodeFlowConfig: AuthConfig = {
   // clientId: 'server.code',
   clientId: 'spa',
 
-  //sessionChecksEnabled: true,
-
   // Just needed if your auth server demands a secret. In general, this
   // is a sign that the auth server is not configured with SPAs in mind
   // and it might not enforce further best practices vital for security
@@ -52,12 +40,21 @@ export const authCodeFlowConfig: AuthConfig = {
   // The api scope is a usecase specific one
   scope: 'openid profile email offline_access api',
 
-  showDebugInformation: true,
+  /**
+   * Defines whether additional debug information should
+   * be shown at the console. Note that in certain browsers
+   * the verbosity of the console needs to be explicitly set
+   * to include Debug level messages.
+   */
+  showDebugInformation: true
 
-  // Not recommented:
-  // disablePKCI: true,
 };
 
+
+/**
+ *  Full AuthConfig blueprint
+ *  not meant to be used
+ */
 export const authFullConfig: AuthConfig = {
   /**
    * The client's id as registered with the auth server

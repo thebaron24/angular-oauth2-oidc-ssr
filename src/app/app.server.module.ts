@@ -20,10 +20,12 @@ import { AppComponent } from './app.component';
     AuthenticationServerModule
   ],
   bootstrap: [AppComponent],
-  // providers: [{
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: UniversalInterceptor,
-  //   multi: true
-  // }]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UniversalInterceptor,
+      multi: true
+    }
+  ]
 })
 export class AppServerModule {}
