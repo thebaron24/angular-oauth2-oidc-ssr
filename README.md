@@ -2,6 +2,12 @@
 
 This is a starter configuration for an Angular project with server side rendering using a node express server.
 
+make sure you change your redirectUri for local testing
+
+client side only: redirectUri: 'http://localhost:4200',
+
+SSR + Client: redirectUri: 'http://localhost:4000',
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
 ## Development server

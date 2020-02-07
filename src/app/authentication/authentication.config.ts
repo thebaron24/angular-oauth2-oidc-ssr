@@ -4,7 +4,8 @@ export const resourceConfig: any = {
   resourceServer: {
     allowedUrls: [
       'http://localhost:4200/api',
-      'http://localhost:4000/api'
+      'http://localhost:4000/api',
+      'https://angular-oauth.herokuapp.com/api'
     ],
     sendAccessToken: false
   }
@@ -18,8 +19,11 @@ export const authCodeFlowConfig: AuthConfig = {
   // URL of the SPA to redirect the user to after login
   //redirectUri: window.location.origin + '/index.html',
   //redirectUri: window.location.origin,
-  redirectUri: 'http://localhost:4000',
+  // redirectUri: 'http://localhost:4000',
   // redirectUri: 'http://localhost:4200',
+
+  //make sure you change this for local testing
+  redirectUri: 'https://angular-oauth.herokuapp.com',
 
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
