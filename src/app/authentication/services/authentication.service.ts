@@ -36,7 +36,7 @@ export class AuthenticationService implements OnInit, OnDestroy {
     private oauthService: OAuthService,
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookiesService) {
-    console.log("AuthenticationService");
+    //console.log("AuthenticationService");
 
 
     if (isPlatformBrowser(this.platformId)) {

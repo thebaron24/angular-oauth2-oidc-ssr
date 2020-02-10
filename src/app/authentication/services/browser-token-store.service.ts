@@ -6,7 +6,7 @@ import { CookiesService } from '@ngx-utils/cookies';
 export class BrowserTokenStoreService implements OAuthStorage {
 
     constructor(private cookies: CookiesService) {
-        console.log("BrowserTokenStoreService");
+        //console.log("BrowserTokenStoreService");
     }
 
     getItem(key: string): string {

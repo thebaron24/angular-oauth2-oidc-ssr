@@ -22,7 +22,7 @@ export class DataService {
       .pipe(
         map((response) => {
         	//header access here
-        	console.log(response);
+        	//console.log(response);
         	//return body only
           return response.body;
         }),
@@ -34,7 +34,7 @@ export class DataService {
   };
 
   private handleError(error){
-    console.log("DataService:", error);
+    //console.error(error);
   }
 
 }

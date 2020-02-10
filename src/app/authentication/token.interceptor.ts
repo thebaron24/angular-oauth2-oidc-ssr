@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
     // Would like to inject authService directly but it causes a cyclic dependency error
     // see https://github.com/angular/angular/issues/18224
     constructor(private injector: Injector) {
-        console.log("TokenInterceptor");
+        //console.log("TokenInterceptor");
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
