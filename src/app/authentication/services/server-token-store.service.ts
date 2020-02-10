@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { OAuthStorage } from 'angular-oauth2-oidc';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 
 import {
   CookiesService,
@@ -11,7 +12,10 @@ import {
 @Injectable()
 export class ServerTokenStoreService extends CookiesService implements OAuthStorage {
 
-    constructor( private cookies: CookiesService, private cookiesOptions: CookiesOptionsService){
+    constructor(
+        private cookies: CookiesService,
+        private cookiesOptions: CookiesOptionsService,
+        ){
         super(cookiesOptions);
         console.log("ServerTokenStoreService");
        

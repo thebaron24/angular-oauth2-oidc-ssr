@@ -9,6 +9,9 @@ import { UniversalInterceptor } from './universal.interceptor';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 
+import { Request, Response } from 'express';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+
 @NgModule({
   imports: [
     AppModule,

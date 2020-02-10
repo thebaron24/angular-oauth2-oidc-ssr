@@ -6,12 +6,16 @@ import {ngExpressEngine} from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 import {renderModuleFactory} from '@angular/platform-server';
+import {REQUEST, RESPONSE} from '@nguniversal/express-engine/tokens';
 import * as express from 'express';
 import {join} from 'path';
 import * as compression from 'compression';
 import cookieParser from 'cookie-parser';
-import * as jwt from 'express-jwt';
-import * as jwksRsa from 'jwks-rsa';
+import * as bodyParser from 'body-parser';
+import { dataMiddleware, Authorize } from './middleware';
+import * as request from 'request';
+import * as requestPromise from 'request-promise';
+
 
 
 // Faster server renders w/ Prod mode (dev mode never needed)
@@ -23,29 +27,6 @@ const app = express();
 app.use(compression());
 
 app.use(cookieParser(process.env.SESSION_SECRET));
-
-//middleware that dynamically signs the secret and authorizes access to endpoints based on JWT token
-const jwtCheck = jwt({
-  secret: jwksRsa.expressJwtSecret({
-	  cache: true,
-	  rateLimit: true,
-	  jwksRequestsPerMinute: 5,
-	  jwksUri: 'https://demo.identityserver.io/.well-known/openid-configuration/jwks'
-	}),
-  aud: 'spa',
-  issuer: 'https://demo.identityserver.io',
-  algorithms: ['RS256'],
-  getToken: function fromHeaderOrQuerystring (req) {
-    if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
-        return req.headers.authorization.split(' ')[1];
-    } else if (req.query && req.query.token) {
-      return req.query.token;
-    }
-    return null;
-  }
-})
-
-app.use('/api', jwtCheck);
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
@@ -69,8 +50,10 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+app.use('/api', bodyParser.json(), dataMiddleware, Authorize);
+
 //api routes are protected by authorization bearer token
-app.get('/api/**', (req, res) => {
+app.get('/api/test', (req, res) => {
   res.status(200).send({test: 'test body'});
 });
 
