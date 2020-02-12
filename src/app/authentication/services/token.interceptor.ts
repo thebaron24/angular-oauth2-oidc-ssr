@@ -3,7 +3,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/c
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TokenInterceptor implements HttpInterceptor {
 
     private authService: OAuthService;

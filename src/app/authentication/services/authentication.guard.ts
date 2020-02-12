@@ -4,7 +4,9 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationGuard implements CanActivate {
 
 	constructor(private oauthService: OAuthService, private router: Router) {}

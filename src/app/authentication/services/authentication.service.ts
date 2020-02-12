@@ -16,7 +16,9 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authCodeFlowConfig } from '../authentication.config';
 import { CookiesService } from '@ngx-utils/cookies';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationService implements OnInit, OnDestroy {
 
   private subscriptions: any = {};

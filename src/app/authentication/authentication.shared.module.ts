@@ -7,10 +7,10 @@ import {
   OAuthResourceServerErrorHandler,
   OAuthNoopResourceServerErrorHandler
 } from 'angular-oauth2-oidc';
-import { MaterialModule } from '../material/material.module';
+// import { MaterialModule } from '../material/material.module';
 import { AuthenticationService } from './services/authentication.service';
-import { AuthenticationGuard } from './authentication.guard';
-import { TokenInterceptor } from './token.interceptor';
+import { AuthenticationGuard } from './services/authentication.guard';
+import { TokenInterceptor } from './services/token.interceptor';
 import { resourceConfig } from './authentication.config';
 
 @NgModule({
@@ -18,17 +18,17 @@ import { resourceConfig } from './authentication.config';
   imports: [
     CommonModule,
     HttpClientModule,
-    MaterialModule,
+    // MaterialModule,
     OAuthModule.forRoot(resourceConfig)
   ],
   exports: [
     HttpClientModule,
-    MaterialModule,
+    // MaterialModule,
     OAuthModule
   ],
   providers: [
-    AuthenticationService,
-    AuthenticationGuard,
+    // AuthenticationService,
+    // AuthenticationGuard,
     {
       provide: OAuthResourceServerErrorHandler,
       useClass: OAuthNoopResourceServerErrorHandler
