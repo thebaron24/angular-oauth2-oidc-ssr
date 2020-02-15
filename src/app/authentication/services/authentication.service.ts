@@ -64,7 +64,7 @@ export class AuthenticationService implements OnInit, OnDestroy {
           this.router.navigate(['login']);
         }
       } else if (event instanceof OAuthSuccessEvent) {
-        //console.warn(event)
+        console.warn(event)
         if(['token_received'].includes(event.type)){
           this.getUserInfo();
         }
@@ -125,7 +125,6 @@ export class AuthenticationService implements OnInit, OnDestroy {
         if(this.oauthService.hasValidAccessToken()){
           this.getUserInfo();
         } else {
-          console.log("in else");
           this.oauthService.initCodeFlow();
         }
       },

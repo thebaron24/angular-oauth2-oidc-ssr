@@ -50,7 +50,7 @@ export const authCodeFlowConfig: AuthConfig = {
    * the verbosity of the console needs to be explicitly set
    * to include Debug level messages.
    */
-  showDebugInformation: false
+  showDebugInformation: true
 
 };
 
