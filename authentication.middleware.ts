@@ -2,9 +2,10 @@ import * as jwt from 'jsonwebtoken';
 import * as jwksClient from 'jwks-rsa';
 import * as request from 'request';
 import * as requestPromise from 'request-promise';
-var UnauthorizedError = require('./custom-errors');
 
-export const dataMiddleware: any = async (req, res, next) => {
+import { UnauthorizedError} from './custom.errors';
+
+const DataExtract: any = async (req, res, next) => {
 
 
   const headers = req.headers;
@@ -36,7 +37,7 @@ export const dataMiddleware: any = async (req, res, next) => {
   next()
 }
 
-export const Authorize: any = async (req, res, next) => {
+const Authorize: any = async (req, res, next) => {
   
   const oidcEndpoint = '/.well-known/openid-configuration';
 
@@ -102,3 +103,5 @@ export const Authorize: any = async (req, res, next) => {
     res.status(401).json(error);
   }
 }
+
+export { DataExtract, Authorize}

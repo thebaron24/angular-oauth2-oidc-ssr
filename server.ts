@@ -12,7 +12,7 @@ import {join} from 'path';
 import * as compression from 'compression';
 import cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
-import { dataMiddleware, Authorize } from './middleware';
+import { DataExtract, Authorize } from './authentication.middleware';
 import * as request from 'request';
 import * as requestPromise from 'request-promise';
 
@@ -50,7 +50,7 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
-app.use('/api', bodyParser.json(), dataMiddleware, Authorize);
+app.use('/api', bodyParser.json(), DataExtract, Authorize);
 
 //api routes are protected by authorization bearer token
 app.get('/api/test', (req, res) => {

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import {
   OAuthModule,
   OAuthStorage,
   OAuthResourceServerErrorHandler,
   OAuthNoopResourceServerErrorHandler
 } from 'angular-oauth2-oidc';
-// import { MaterialModule } from '../material/material.module';
+
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './services/authentication.guard';
 import { TokenInterceptor } from './services/token.interceptor';
@@ -18,17 +19,13 @@ import { resourceConfig } from './authentication.config';
   imports: [
     CommonModule,
     HttpClientModule,
-    // MaterialModule,
     OAuthModule.forRoot(resourceConfig)
   ],
   exports: [
     HttpClientModule,
-    // MaterialModule,
     OAuthModule
   ],
   providers: [
-    // AuthenticationService,
-    // AuthenticationGuard,
     {
       provide: OAuthResourceServerErrorHandler,
       useClass: OAuthNoopResourceServerErrorHandler
